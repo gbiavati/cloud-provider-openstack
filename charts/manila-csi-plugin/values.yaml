@@ -6,15 +6,15 @@ driverName: manila.csi.openstack.org
 
 # Enabled Manila share protocols
 shareProtocols:
-  - protocolSelector: NFS
-    fsGroupPolicy: None
+  # - protocolSelector: NFS
+  #   fsGroupPolicy: None
+  #   fwdNodePluginEndpoint:
+  #     dir: /var/lib/kubelet/plugins/csi-nfsplugin
+  #     sockFile: csi.sock
+  - protocolSelector: CEPHFS
     fwdNodePluginEndpoint:
-      dir: /var/lib/kubelet/plugins/csi-nfsplugin
+      dir: /var/lib/kubelet/plugins/cephfs.csi.ceph.com
       sockFile: csi.sock
- # - protocolSelector: CEPHFS
- #   fwdNodePluginEndpoint:
- #     dir: /var/lib/kubelet/plugins/cephfs.csi.ceph.com
- #     sockFile: csi.sock
 
 # ImagePullSecret for all pods
 imagePullSecrets: []
